@@ -8,10 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: 'Commit (build & test in under 5 minutes)'
+      - name: 'Commit (compile, unit test, analysis, build installers in under 5 minutes)'
         run: echo 'This is my commit stage and pipeline will stop if this stage fails'
 
-      - name: 'Artifact'
+      - name: 'Artifact/release candidate with a unique id'
         run: echo 'This is where I will publish my package (on github?)'
 
       - name: 'Acceptance testing in prod-like envrionment'

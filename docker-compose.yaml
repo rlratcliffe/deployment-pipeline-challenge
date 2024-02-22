@@ -5,10 +5,10 @@ services:
   frontend:
     container_name: frontend
     build:
-      context: ./react-app/
+      context: ./ui/react-app/
       dockerfile: Dockerfile
     volumes:
-      - './react-app:/usr/src/app'
+      - './ui/react-app:/usr/src/app'
       - '/usr/src/app/node_modules'
     ports:
       - 3000:3000

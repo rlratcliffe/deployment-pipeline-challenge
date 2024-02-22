@@ -11,6 +11,13 @@ docker-compose up
 docker-compose build
 ```
 
+## Test Running
+
+```
+docker-compose build
+docker-compose -f docker-compose.yaml -f docker-compose.test.yaml up
+```
+
 ## Slicing
 ### Current focus/use case:
 Customer can identify when food order has started processing

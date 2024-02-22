@@ -6,3 +6,6 @@ services:
     environment:
     - CI=true
     command: npm test
+
+  api:
+    command: poetry run python manage.py test

@@ -9,7 +9,10 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: 'Commit (compile, unit test, analysis, build installers in under 5 minutes)'
-        run: echo 'This is my commit stage and pipeline will stop if this stage fails'
+        run: | 
+          echo Building docker image
+          docker-compose build
+          docker-compose -f docker-compose.yaml -f docker-compose.test.yaml up
 
       - name: 'Artifact/release candidate with a unique id'
         run: echo 'This is where I will publish my package (on github?)'

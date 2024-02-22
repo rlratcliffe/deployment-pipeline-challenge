@@ -22,3 +22,7 @@ jobs:
 
       - name: 'Production'
         run: echo 'This is where the application will be deployed'
+
+      - name: Clean up
+        if: always()
+        run: docker-compose down

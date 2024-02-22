@@ -7,16 +7,13 @@ This is a dashboard that will show the status of the orders for customers (like 
 ## Local Running
 
 ```
-docker-compose up
 docker-compose build
+docker-compose up
 ```
 
 ## Test Running
 
-```
-docker-compose build
-docker-compose -f docker-compose.yaml -f docker-compose.test.yaml up
-```
+Refer to .github/workflows for how to run the tests.
 
 ## Slicing
 ### Current focus/use case:

@@ -4,6 +4,13 @@ For the 'The Anatomy of a Deployment Pipeline' course by Continuous Delivery Ltd
 ## Overview
 This is a dashboard that will show the status of the orders for customers (like in a lobby). Imagine that there is a different system that's actually processing the food orders, and it is creating logs of the food orders. The logs are what will be used to populate the dashboard. 
 
+## Local Running
+
+```
+docker-compose up
+docker-compose build
+```
+
 ## Slicing
 ### Current focus/use case:
 Customer can identify when food order has started processing

@@ -25,15 +25,14 @@ services:
   api:
     container_name: api
     build:
-      context: ./api/
+      context: ./api/flask_api/
       dockerfile: Dockerfile
-    volumes:
-      - './api:/usr/src/app'
     ports:
-      - 8000:8000
+      - 5000:5000
     command:
       - /bin/sh
       - -c
       - |
         ls
-        poetry run python manage.py runserver 0.0.0.0:8000
+        poetry run pytest -rP -v
+        poetry run flask --app orders --debug run -h 0.0.0.0

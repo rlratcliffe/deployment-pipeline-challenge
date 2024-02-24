@@ -1,15 +1,17 @@
 [tool.poetry]
-name = "django-api"
+name = "flask_api"
 version = "0.1.0"
 description = ""
 authors = ["Rob Ratcliffe <rlr@tcliffe.dev>"]
 readme = "README.md"
-packages = [{include = "django_api"}]
+packages = [{include = "flask_api"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-django = "^5.0.2"
-djangorestframework = "^3.14.0"
+Flask = "^3.0.2"
+marshmallow = "^3.20.2"
+pandas = "^2.2.1"
+pytest = "^8.0.1"
 
 
 [build-system]

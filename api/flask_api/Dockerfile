@@ -9,4 +9,4 @@ RUN pip3 install poetry
 RUN poetry install
 RUN poetry show
 
-EXPOSE 8000
+EXPOSE 5000

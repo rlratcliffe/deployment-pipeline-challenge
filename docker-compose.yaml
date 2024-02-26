@@ -19,7 +19,7 @@ services:
       - -c
       - |
         ls
-        npm test
+        CI=true npm test
         npm start
 
 

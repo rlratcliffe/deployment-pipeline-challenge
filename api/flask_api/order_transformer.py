@@ -1,5 +1,5 @@
 import pandas as pd
-from .order import Order
+from flask_api.models.order import Order
 
 class OrderTransformer():
 

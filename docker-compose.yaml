@@ -19,6 +19,7 @@ services:
       - -c
       - |
         ls
+        npm test
         npm start
 
 
@@ -27,6 +28,8 @@ services:
     build:
       context: ./api/flask_api/
       dockerfile: Dockerfile
+    volumes:
+      - './api/flask_api:/usr/src/app/flask_api'
     ports:
       - 5000:5000
     command:

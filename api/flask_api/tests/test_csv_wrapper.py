@@ -1,7 +1,3 @@
-import sys
-
-sys.path.append('../flask_api')
-
 from flask_api.csv_wrapper import CSVWrapper
 import pandas as pd
 

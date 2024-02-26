@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-from .order import Order, OrderSchema
+from flask_api.models.order import Order, OrderSchema
 
 app = Flask(__name__)
 

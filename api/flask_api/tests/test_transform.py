@@ -1,10 +1,7 @@
-import sys
-
-sys.path.append('../flask_api')
-
+from flask_api.models.order import Order
 from flask_api.order_transformer import OrderTransformer
-from flask_api.order import Order
 from flask_api.csv_wrapper import CSVWrapper
+
 import pandas as pd
 
 

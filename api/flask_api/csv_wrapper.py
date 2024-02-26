@@ -1,6 +1,6 @@
 import pandas as pd
 
-class CSVWrapper():
+class CSVWrapper:
 
-    def readCSV(filePath):
+    def readCSV(self, filePath):
         return pd.read_csv(filePath)

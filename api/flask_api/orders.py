@@ -1,14 +1,10 @@
 from flask import Flask, jsonify
-from flask_api.models.order import OrderSchema
-from flask_api.csv_wrapper import CSVWrapper
-from flask_api.order_transformer import OrderTransformer
+from flask_api.order_controller import OrderController
 
 app = Flask(__name__)
 
+orderController = OrderController("storage/source.csv")
+
 @app.route("/orders")
 def get_orders():
-    csv = CSVWrapper.readCSV("storage/source.csv")
-    orders = OrderTransformer.convertFromCsv(csv)
-    schema = OrderSchema(many=True)
-    ordersTransformed = schema.dump(orders)
-    return jsonify(ordersTransformed)
+    return jsonify(orderController.get_orders())

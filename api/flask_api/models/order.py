@@ -27,3 +27,6 @@ class Order(object):
 class OrderSchema(Schema):
     trace_id = fields.Str()
     abbreviated_name = fields.Str()
+    food_ordered = fields.Str()
+    started_status = fields.Str()
+    processing_status = fields.Str()

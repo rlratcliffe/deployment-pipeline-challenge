@@ -1,23 +1,30 @@
-import pandas as pd
 from flask_api.models.order import Order
 
 class OrderTransformer:
 
     def convertFromCsv(self, csvData):
-        orders = []
+        orders = {}
         for i,row in csvData.iterrows():
             id = str(row['Trace ID'])
             abbreviated_name = str(row['First Name'] + row['Last Name'])
             food = str(row['Order'])
-            started_status, processing_status = self.__processStatus(str(row['Status']), str(row['Success']))
-            order = Order(id, abbreviated_name, food, started_status, processing_status)
-            orders.append(order)
-        return orders
+            status_type = str(row['Status'])
+            status_result = str(row['Success'])
 
-    def __processStatus(self, status_type, status):
-        started_status = ''
-        processing_status = ''
+            if (id in orders.keys()):
+                order = orders[id]
+            else:
+                order = Order(id, abbreviated_name, food)
+            
+            order = self.__processStatuses(order, status_type, status_result)
+            orders[id] = order
+        listOfOrders = list(orders.values())
+        return listOfOrders
+
+    def __processStatuses(self, order, status_type, status_result):
         if status_type == 'Started':
-            started_status = status
-        
-        return started_status, processing_status
+            order.set_started_status(status_result)
+        if status_type == 'Processing':
+            order.set_processing_status(status_result)
+
+        return order

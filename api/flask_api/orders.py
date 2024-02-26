@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route("/orders")
 def get_orders():
-    # csv = CSVWrapper.readCSV("tests/mockdata/source.csv")
     csv = CSVWrapper.readCSV("storage/source.csv")
     orders = OrderTransformer.convertFromCsv(csv)
     schema = OrderSchema(many=True)

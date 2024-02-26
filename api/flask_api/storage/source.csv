@@ -1,2 +1,4 @@
 Trace ID,First Name,Last Name,Order,Status,Success
 23404,Sherlock,Holmes,Pie,Started,TRUE
+23404,Sherlock,Holmes,Pie,Processing,TRUE
+53192,John,Watson,Pizza,Started,FALSE

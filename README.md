@@ -10,7 +10,7 @@ Overall objective is to build a dashboard in an iterative way and experience wha
 
 ```
 docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
-docker-compose -f docker-compose.yaml -f docker-compose.local.yaml down
+docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
 ```
 
 ## Slicing
@@ -24,13 +24,13 @@ Customer can identify when food order has started processing
 
 ### Questions
 *Where Do You Think You Are Now?*
-At the end of the commit stage
+At the end of the Commit stage, onto the Acceptance stage
 
 *What Is Your Objective?*
-To ensure the artifacts built work
+To build the next stage
 
 *What Is Your Next Step?*
-Move onto the acceptance stage
+Watch the acceptance test stage videos
 
 *How Will You Know If You Have Succeeded?*
 Not sure yet

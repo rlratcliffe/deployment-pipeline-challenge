@@ -3,9 +3,15 @@ version: '3.7'
 services:
 
   frontend:
-    environment:
-    - CI=true
-    command: npm test
+    command:
+      - /bin/sh
+      - -c
+      - |
+        CI=true npm test
 
   api:
-    command: poetry run pytest -rP -v
+    command:
+      - /bin/sh
+      - -c
+      - |
+        poetry run pytest -rP -v

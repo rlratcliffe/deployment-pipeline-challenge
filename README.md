@@ -10,7 +10,8 @@ Overall objective is to build a dashboard in an iterative way and experience wha
 
 ```
 docker-compose build
-docker-compose up
+docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
+docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
 ```
 
 ## Slicing

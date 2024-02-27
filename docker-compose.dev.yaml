@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./ui/react-app/
+      dockerfile: Dockerfile
+    volumes:
+      - './ui/react-app:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ls
+        CI=true npm test
+        npm start
+
+
+  api:
+    container_name: api
+    build:
+      context: ./api/flask_api/
+      dockerfile: Dockerfile
+    volumes:
+      - './api/flask_api:/usr/src/app/flask_api'
+    command:
+      - /bin/sh
+      - -c
+      - |
+        ls
+        poetry run pytest -rP -v
+        poetry run flask --app orders --debug run -h 0.0.0.0

@@ -21,7 +21,7 @@ jobs:
       - name: 'COMMIT STAGE: (compile, unit test, analysis, build installers in under 5 minutes)'
         run: | 
           echo Building docker image
-          docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml -f docker-compose.test.yaml up --build --abort-on-container-exit
+          docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml -f docker-compose.test.yaml up --build
 
       - name: Clean up
         if: always()

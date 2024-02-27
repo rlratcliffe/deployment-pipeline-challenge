@@ -18,10 +18,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: 'COMMIT STAGE: (compile, unit test, analysis, build installers in under 5 minutes)'
+      # COMMIT STAGE: (compile, unit test, analysis, build installers in under 5 minutes)
+      - name: 'COMMIT STAGE: Comple & test UI'
         run: | 
-          echo Building docker image
-          docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml -f docker-compose.test.yaml up --build
+          echo Building UI image
+          docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml -f docker-compose.test.yaml up --build --exit-code-from frontend
+
+      - name: 'COMMIT STAGE: Comple & test API'
+        run: | 
+          echo Building API image
+          docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml -f docker-compose.test.yaml up --build --exit-code-from api
 
       - name: Clean up
         if: always()

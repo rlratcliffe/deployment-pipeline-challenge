@@ -7,7 +7,7 @@ test('renders table headers', () => {
   render(<table><thead><TableHeaders/></thead><tbody></tbody></table>);
 
   const linkElement = screen.getByRole('row');
-  expect(linkElement.outerHTML).toEqual("<tr><th scope=\"col\">Trace ID</th><th scope=\"col\">Name</th><th scope=\"col\">Order</th><th scope=\"col\">Started Status</th><th scope=\"col\">Processing Status</th></tr>");
+  expect(linkElement.outerHTML).toEqual("<td><th scope=\"col\">Trace ID</th><th scope=\"col\">Name</th><th scope=\"col\">Order</th><th scope=\"col\">Started Status</th><th scope=\"col\">Processing Status</th></tr>");
 });
 
 test('renders table rows with success and failure', () => {

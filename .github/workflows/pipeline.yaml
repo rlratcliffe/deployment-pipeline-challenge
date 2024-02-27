@@ -18,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: 'Commit (compile, unit test, analysis, build installers in under 5 minutes)'
+      - name: 'COMMIT STAGE: (compile, unit test, analysis, build installers in under 5 minutes)'
         run: | 
           echo Building docker image
           docker-compose build
@@ -28,26 +28,40 @@ jobs:
         if: always()
         run: docker-compose down
 
-      - name: Log in to the Container registry
+      - name: 'COMMIT STAGE: Log in to the Container registry'
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
+      - name: 'COMMIT STAGE: Extract metadata for UI image'
+        id: meta-ui
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: type=raw,value=ui-{{branch}}-{{sha}}
 
-      - name: Build and push Docker image
+      - name: 'COMMIT STAGE: Build and push UI image'
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: "{{defaultContext}}:ui/react-app"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta-ui.outputs.tags }}
+
+      - name: 'COMMIT STAGE: Extract metadata for API image'
+        id: meta-api
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: type=raw,value=api-{{branch}}-{{sha}}
+
+      - name: 'COMMIT STAGE: Build and push API image'
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: "{{defaultContext}}:api/flask_api"
+          push: true
+          tags: ${{ steps.meta-api.outputs.tags }}
 
       - name: 'Artifact/release candidate with a unique id'
         run: echo 'This is where I will publish my package (on github?)'

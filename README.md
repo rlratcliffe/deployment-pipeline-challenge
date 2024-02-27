@@ -9,9 +9,8 @@ Overall objective is to build a dashboard in an iterative way and experience wha
 ## Local Tests & Running
 
 ```
-docker-compose build
 docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
-docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
+docker-compose -f docker-compose.yaml -f docker-compose.local.yaml down
 ```
 
 ## Slicing

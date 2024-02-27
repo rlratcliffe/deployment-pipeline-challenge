@@ -67,6 +67,8 @@ jobs:
           context: "{{defaultContext}}:api/flask_api"
           push: true
           tags: ${{ steps.meta-api.outputs.tags }}
+      
+      - run: "echo Release candidates are: ${{ steps.meta-api.outputs.tags }} and ${{ steps.meta-ui.outputs.tags }}"
 
       - name: 'Artifact/release candidate with a unique id'
         run: echo 'This is where I will publish my package (on github?)'

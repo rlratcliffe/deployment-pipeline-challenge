@@ -61,3 +61,6 @@ Failing API tests return as failure, passing API tests return as success
 ## Other Todos
 - Create actual external db (sqllite?) with init scripts
 - Connect API to db
+
+
+## Testing doc update

@@ -2,6 +2,8 @@ name: ci
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/README.md'
 
 env:
   REGISTRY: ghcr.io

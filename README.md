@@ -29,14 +29,35 @@ Customer can identify when food order has started processing
 - Simplest storage: Logs as a CSV
 
 ### Questions
-*Where Do You Think You Are Now?*
-At the end of the Commit stage, onto the Acceptance stage
+**Current Big Picture**
 
 *What Is Your Objective?*
-To build the next stage
-
-*What Is Your Next Step?*
-Watch the acceptance test stage videos
+To complete the acceptance test stage.
 
 *How Will You Know If You Have Succeeded?*
-Not sure yet
+
+When these things are complete and working:
+- automated configuration of the test environment
+- automated deploy of release candidate
+- automated smoke test/health check
+- acceptance tests running in test environment
+- record of results with release candidate id as key
+
+**Current Details**
+
+*Where Do You Think You Are Now?*
+Finished setting up robot framework UI tests to work locally
+
+*What Is Your Objective?*
+Finish setting up API acceptance tests
+
+*What Is Your Next Step?*
+Setup robot framework API tests
+
+*How Will You Know If You Have Succeeded?*
+Failing API tests return as failure, passing API tests return as success
+
+
+## Other Todos
+- Create actual external db (sqllite?) with init scripts
+- Connect API to db

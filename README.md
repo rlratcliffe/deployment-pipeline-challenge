@@ -6,11 +6,17 @@ This is a dashboard that will show the status of the orders for customers (like 
 
 Overall objective is to learn about walking skeletons/vertical slicing by building a dashboard in an iterative way. And experiencing what having a pipeline from the start for a UI could solve with being able to pivot quickly.
 
-## Local Tests & Running
+## Local Unit Tests & Running
 
 ```
 docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up
 docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
+```
+
+## Local Acceptance Tests
+
+```
+robot -d results acceptance-tests/robot-framework/Tests/UI/Test_Dashboard.robot
 ```
 
 ## Slicing

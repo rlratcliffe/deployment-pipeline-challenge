@@ -17,6 +17,11 @@ docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml down
 
 ```
 robot -d results acceptance-tests/robot-framework/Tests/UI/Test_Dashboard.robot
+robot -d results acceptance-tests/robot-framework/Tests/API/Test_API.robot
+
+or run all tests at once with
+
+robot -d results acceptance-tests/robot-framework/Tests
 ```
 
 ## Slicing

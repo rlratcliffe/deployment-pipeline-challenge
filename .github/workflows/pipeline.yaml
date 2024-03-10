@@ -72,9 +72,6 @@ jobs:
       
       - run: "echo Release candidates are: ${{ steps.meta-api.outputs.tags }} and ${{ steps.meta-ui.outputs.tags }}"
 
-      - name: 'Artifact/release candidate with a unique id'
-        run: echo 'This is where I will publish my package (on github?)'
-
       - name: 'Acceptance testing in prod-like envrionment'
         run: echo 'This is where the acceptance tests will run'
 
